@@ -2,8 +2,13 @@
 	path = src/ackermann_mux
 	url = https://github.com/f1tenth/ackermann_mux.git
 	branch = foxy-devel
+
 [submodule "src/vesc"]
 	path = src/vesc
 	url = https://github.com/Manninee/roboracer_vesc.git
 	branch = foxy
 
+[submodule "src/depthimage_to_laserscan"]
+	path = src/depthimage_to_laserscan
+	url = https://github.com/ros-perception/depthimage_to_laserscan.git
+	branch = foxy-devel
