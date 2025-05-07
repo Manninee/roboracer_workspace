@@ -1,0 +1,8 @@
+[submodule "ackermann_mux"]
+	path = ackermann_mux
+	url = https://github.com/f1tenth/ackermann_mux.git
+	branch = foxy-devel
+[submodule "vesc"]
+	path = vesc
+	url = https://github.com/Manninee/roboracer_vesc.git
+	branch = foxy
