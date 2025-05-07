@@ -1,0 +1,1 @@
+ros2 launch nav2_map_server map_saver_cli -f '/home/user/roboracer_workspace/map' --ros-args -p save_map_timeout:=10000

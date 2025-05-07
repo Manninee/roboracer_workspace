@@ -1,0 +1,7 @@
+twist_to_ackermann:
+  ros__parameters:
+    twist_stamped: false
+    ackermann_stamped: true
+    twist_topic: "/cmd_vel"
+    ackermann_topic: "/drive"
+    wheelbase: 0.273 # Same as in vesc.yaml

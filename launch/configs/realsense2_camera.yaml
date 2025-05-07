@@ -1,0 +1,63 @@
+# https://github.com/IntelRealSense/realsense-ros/tree/ros2-legacy
+
+realsense2_camera:
+  ros__parameters:
+    serial_no : "" # choose device by serial number
+    usb_port_id : "" # choose device by usb port id
+    device_type : "" # choose device by type
+    reconnect_timeout : 6. # Timeout(seconds) between consequtive reconnection attempts
+    wait_for_device_timeout : -1. # Timeout for waiting for device to connect (Seconds)
+
+    align_depth.enable : false # publish additional topics for the "aligned depth to color"
+
+    colorizer.enable : false
+    pointcloud.enable : false
+    pointcloud.stream_filter : 2 # texture stream for pointcloud
+    pointcloud.stream_index_filter : 0 # texture stream index for pointcloud
+    pointcloud.ordered_pc : false
+
+    hdr_merge.enable : false # hdr_merge filter enablement flag
+    depth_module.exposure.1 : 7500 # Depth module first exposure value. Used for hdr_merge filter
+    depth_module.gain.1 : 16 # Depth module first gain value. Used for hdr_merge filter
+    depth_module.exposure.2 : 1 # Depth module second exposure value. Used for hdr_merge filter
+    depth_module.gain.2 : 16 # Depth module second gain value. Used for hdr_merge filter
+    depth_module.exposure : 8500 # Depth module manual exposure value
+    depth_module.hdr_enabled : false # Depth module hdr enablement flag. Used for hdr_merge filter
+    depth_module.enable_auto_exposure : true # enable/disable auto exposure for depth image
+
+    enable_sync : false # Gathers closest frames of different sensors, infra red, color and depth, to be sent with the same timetag
+
+    depth_module.profile : "640x360x30" # depth module profile}
+    enable_depth : true # enable depth stream
+    rgb_camera.profile : "1280x720x15" # color image width
+    rgb_camera.enable_auto_exposure : true # enable/disable auto exposure for color image
+    enable_color : true # enable color stream
+    enable_infra : false # enable infra0 stream
+    enable_infra1 : false # enable infra1 stream
+    enable_infra2 : false # enable infra2 stream
+    enable_fisheye1 : false # enable fisheye1 stream
+    enable_fisheye2 : false # enable fisheye2 stream
+    enable_confidence : false # enable depth stream
+    
+    unite_imu_method : 1 # [0-None1-copy2-linear_interpolation]
+    enable_gyro : true
+    enable_accel : true
+    enable_pose : false
+    gyro_fps : 200
+    accel_fps : 100
+    pose_fps : 50
+    
+    clip_distance : -2.
+    linear_accel_cov : 0.01
+    initial_reset : true
+    allow_no_texture_points : false
+    
+    publish_tf : true # [bool] enable/disable publishing static & dynamic TF
+    tf_publish_rate : 0.0 # [double] rate in Hz for publishing dynamic TF
+    diagnostics_period : 0.0 # Rate of publishing diagnostics. 0=Disabled
+
+    # base_frame_id: "" # Defines the frame_id all static transformations refers to.
+    # odom_frame_id: "" # Defines the origin coordinate system in ROS convention (X-Forward, Y-Left, Z-Up). pose topic defines the pose relative to that system.
+
+    # publish_odom_tf: True # Publish TF from odom_frame to pose_frame
+    

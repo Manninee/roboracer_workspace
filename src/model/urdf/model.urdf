@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<robot name="car"
+  xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <material name="grey">
+    <color rgba="0.5 0.5 0.5 1.0"/>
+  </material>
+
+  <material name="dark">
+    <color rgba="0.3 0.3 0.3 1.0"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>
+
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+      <parent link="base_footprint"/>
+      <child link="base_link" />
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_link">
+    <visual>
+      <!-- <origin xyz="-0.233 0.260 0.0" rpy="0 0 0"/> -->
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+      <geometry>
+          <mesh filename="package://model/meshes/Chassis.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.140" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.466 0.194 0.280"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_right_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_right_wheel_link"/>
+    <origin xyz="0.1315 -0.097 0.015" rpy="-1.57 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+   <joint name="front_left_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_left_wheel_link"/>
+    <origin xyz="0.1315 0.097 0.015" rpy="-1.57 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="back_right_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="back_right_wheel_link"/>
+    <origin xyz="-0.144 -0.097 0.015" rpy="-1.57 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+   <joint name="back_left_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="back_left_wheel_link"/>
+    <origin xyz="-0.144 0.097 0.015" rpy="-1.57 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="front_right_wheel_link">
+    <visual>
+      <origin xyz="0 0 -0.019" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://model/meshes/Tire.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dark"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 -0.019" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.033" radius="0.0445"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="front_left_wheel_link">
+    <visual>
+      <origin xyz="0 0 0.019" rpy="3.14 0 0"/>
+      <geometry>
+        <mesh filename="package://model/meshes/Tire.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dark"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0.019" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.033" radius="0.0445"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="back_right_wheel_link">
+    <visual>
+      <origin xyz="0 0 -0.019" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://model/meshes/Tire.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dark"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 -0.019" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.033" radius="0.0445"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="back_left_wheel_link">
+    <visual>
+      <origin xyz="0 0 0.019" rpy="3.14 0 0"/>
+      <geometry>
+        <mesh filename="package://model/meshes/Tire.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="dark"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0.019" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.033" radius="0.0445"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="depth_camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="depth_camera_link"/>
+    <origin xyz="0.1585 0.0 0.149" rpy="0 0 0"/>
+  </joint>
+
+  <link name="depth_camera_link">
+    <visual>
+      <origin xyz="-0.025 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://model/meshes/Intel_RealSense_Depth_Camera_D435.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 -0.0125" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.025 0.0898 0.025"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+</robot>

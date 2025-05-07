@@ -1,0 +1,2 @@
+. ./setup
+ros2 launch launch/stack.launch.py

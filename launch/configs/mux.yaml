@@ -1,0 +1,17 @@
+ackermann_mux:
+  ros__parameters:
+    topics:
+      navigation: # Navigation stack control
+        topic   : drive # <- Update to the topic sent by navigation stack
+        timeout : 0.2
+        priority: 10
+      joystick: # Manual control using controller
+        topic   : teleop
+        timeout : 0.2
+        priority: 100
+
+    locks:
+      control_navigation: # Enable/disable Navigation stack control
+        topic: control_navigation
+        timeout: 0.0 # 0.0 allows toggling lock
+        priority: 20 # Must be higher than navigation priority

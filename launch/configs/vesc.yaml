@@ -1,0 +1,44 @@
+/**:
+  # general parameters shared by all vesc-related nodes
+  ros__parameters:
+    # erpm (electrical rpm) = speed_to_erpm_gain * speed (meters / second) + speed_to_erpm_offset
+    speed_to_erpm_gain: 11100.0 # <- 1 m/s in erpm
+    speed_to_erpm_offset: 0.0
+    speed_deadzone: 0.01 # m/s
+
+    # These are used for steering and odom
+    steering_min_angle: -0.305
+    steering_max_angle: 0.305
+
+    # Raw servo values for minimum, maximum and center angles
+    steering_min_servo: 0.135
+    steering_max_servo: 0.81
+    steering_center_servo: 0.500
+
+    port: /dev/sensors/vesc
+    duty_cycle_min: 0.0
+    duty_cycle_max: 0.0
+    current_min: 0.0
+    current_max: 100.0
+    brake_min: -20000.0
+    brake_max: 200000.0
+    speed_min: -54000.0 # 5 m/s
+    speed_max: 54000.0 # 5 m/s
+    position_min: 0.0
+    position_max: 0.0
+    servo_min: 0.0
+    servo_max: 1.0
+
+
+vesc_to_odom_node:
+  ros__parameters:
+    odom_frame: odom
+    base_frame: base_footprint
+    # base_frame: base_link
+    # publish odom to base link tf
+    publish_tf: true
+    use_servo_cmd_to_calc_angular_velocity: true
+    wheelbase: .273
+
+    calculate_position_and_yaw: true
+    speed_deadzone: 0.01
